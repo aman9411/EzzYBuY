@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Input, Row, Label, Col, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button, Input, Row, Label, Col, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { Control ,LocalForm ,Errors} from 'react-redux-form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 const required = (val) => val && val.length;
@@ -20,14 +20,19 @@ class Signup extends Component {
             isModalOpen: false,
             isModal2Open: false,
             show: false,
+            showText: false,
             showButton: true,
-            value: " "
+            value: " ",
+            value1: " ",
+            logged_in: false
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.toggleModal2 = this.toggleModal2.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleChange1 = this.handleChange1.bind(this);
+        this.checkUser = this.checkUser.bind(this);
     }
 
     toggleModal() {
@@ -44,18 +49,39 @@ class Signup extends Component {
 
     handleLogin(values) {
            this.toggleModal();
-           this.props.addLoginDetails(parseInt(this.props.personId), values.username, values.password, values.remember);
+           this.props.addLoginDetails(parseInt(this.props.personId), values.email, values.password, values.remember);
+    }
+
+    checkUser(values) {
+        console.log(values.email);
+        if (this.props.signups.find((user)=> user.email.includes(values.email))) {
+            if(this.props.signups.find((user)=> user.password.includes(values.password))){
+                this.setState({
+                    logged_in: true
+                });
+        }} else {
+            alert('Please enter a valid username and Password');
+        }
     }
 
     handleSignup(values) {
         this.toggleModal2();
-        this.props.addSignupDetails(parseInt(this.props.PersonId), values.firstname, values.lastname, values.email, values.dateOfBirth, values.password, values.confirmPassword);
+        this.props.addSignupDetails(parseInt(this.props.PersonId), values.firstname, values.lastname, values.email, values.dateOfBirth, values.password, values.confirmpassword);
         alert("Current State is " + JSON.stringify(values));
- }
+    }
+
+    handleChange1(event) {
+        this.setState({value1: event.target.value}); 
+        if (this.props.signups.find((user)=> user.email.includes(this.state.value1))) {
+            alert("this email is already in use...try another");
+        } else {
+            alert("done");
+        }
+    }
 
 
     handleChange(event) {
-            this.setState({value: event.target.value});  
+            this.setState({value: event.target.value}); 
     }
 
 render() {
@@ -71,9 +97,12 @@ render() {
         }
         </div>
        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                    <ModalHeader toggle={this.toggleModal}><span className="fa fa-user"></span> Login</ModalHeader>
                     <ModalBody>
-                          <LocalForm  onSubmit={(values) => {this.handleLogin(values)} }>
+                          {
+                          this.state.showText? <strong className="signup_details"><i class="fa fa-check" aria-hidden="true"></i>You have successfully Signup.Now Login here...</strong> : null
+                          }
+                          <LocalForm  onSubmit={(values) => {this.handleLogin(values); this.checkUser(values);} }>
                           <Row className="form-group">
                                    <Label htmlFor="email" md={12}>
                                    Email
@@ -82,6 +111,7 @@ render() {
                                    <Control.text model=".email" id="email" name="email"
                                     placeholder="email"
                                    className="form-control"
+                                   onChange={this.handleChange1}
                                    validators={{
                                     required, validEmail
                                 }} />
@@ -91,8 +121,7 @@ render() {
                                show="touched"
                                messages={{
                                    required: 'Required',
-                                   validEmail: 'Invalid Email Address'
-                               }}
+                                   validEmail: 'Invalid Email Address'                                }}
                                />
                                    </Col>
                                </Row>
@@ -133,7 +162,7 @@ render() {
                             </Col>
                         </Row>
                                 
-                               <Button className="m-1" type="submit" value="submit" color="primary">Login</Button>
+                               <Button className="m-1" type="submit" value="submit" color="primary" onClick={()=>{this.setState({show:!this.state.show, showButton:!this.state.showButton})}}>Login</Button>
                               
                                <Button className="float-right" outline onClick={this.toggleModal2}>
                                     Sign up
@@ -144,7 +173,7 @@ render() {
                 </Modal>
                
                 <Modal isOpen={this.state.isModal2Open} toggle={this.toggleModal2}>
-                    <ModalHeader toggle={this.toggleModal2}>Sign up</ModalHeader>
+                    <ModalHeader toggle={this.toggleModal2}><span className="fa fa-user"></span> Sign up</ModalHeader>
                     <ModalBody>
                           <LocalForm onSubmit={(values) => {this.handleSignup(values)} }>
 
@@ -222,7 +251,7 @@ render() {
                                <Row className="form-group">
                                    <Label htmlFor="date" md={12}>
                                      Date Of Birth
-                                     </Label>
+                                   </Label>
                                    <Col md={12}>
                                    <Control.text type="date" model=".date" id="dateOfBirth" name="dateOfBirth"
                                     placeholder="Date Of Birth"
@@ -294,8 +323,8 @@ render() {
                                </Row>
 
                                <Row className="form-group">
-                                 <Col md={{sixe: 10, offset: 2}}>
-                                 <Button type="submit" value="submit" color="primary" onClick={()=>{this.setState({show:!this.state.show, showButton:!this.state.showButton})}}>Sign up</Button>
+                                 <Col md={12}>
+                                 <Button type="submit" value="submit" color="primary" onClick={()=>{this.setState({showText:!this.state.showText})}}>Sign up</Button>
                                </Col>
                                </Row>
 
@@ -376,12 +405,14 @@ class Header extends Component {
                     //   or
 
             <>
-                <Navbar light expand="md">
+                <Navbar light expand="md" sticky="top">
                     <div className="container-fluid">
-                    <NavbarBrand className='mr-auto' href="/">
-                            <img src="assets/images/logo.png" height="50" width="170" alt="EzzYBuY" />
-                    </NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNav} />
+
+                        <NavbarToggler className="navbr" onClick={this.toggleNav} />
+
+                        <NavbarBrand className='mr-auto' href="/">
+                            <img className="nav-brand" src="assets/images/logos.png" alt="EzzYBuY" />
+                        </NavbarBrand>
                         
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav className="hyper" navbar>
@@ -406,10 +437,12 @@ class Header extends Component {
                                 </NavLink>
                             </NavItem>
                         </Nav>
-                        <Nav className="ml-auto" navbar>
+                        <Nav className="ml-auto find" navbar>
                             <NavItem> 
                             <div className="pull-right search">
-                                <Input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+                            <Link to={`/searchproduct`}>
+                                <Input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.props.handleInput} />
+                            </Link>
                             </div> 
                             <div className="pull-right">
                                 <Button outline type="submit" value="submit">
@@ -423,11 +456,15 @@ class Header extends Component {
                             <RenderSignupForm signups={this.props.signups} addLoginDetails={this.props.addLoginDetails} addSignupDetails={this.props.addSignupDetails} />
                             </NavItem>
                         </Nav>
+                        
+                        </Collapse>
+
+
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/wishlist">
-                                    <Button outline type="submit" value="submit" >
-                                    <span className="fa fa-heart fa-sm"></span>
+                                    <Button outline type="submit" value="submit" className="mr-1" >
+                                    <span className="fa fa-heart fa-sm icon"></span>
                                     </Button>
                                 </NavLink>
                             </NavItem>
@@ -436,7 +473,7 @@ class Header extends Component {
                             <NavItem>
                                 <NavLink className="nav-link" to="/checkout">
                                     <Button outline type="submit" value="submit">
-                                    <span className="fa fa-shopping-bag fa-sm"></span>
+                                    <span className="fa fa-shopping-cart fa-sm icon"></span>
 
                                     {cartItems.length === 0 ? (
                                          <div>
@@ -452,8 +489,6 @@ class Header extends Component {
                                 </NavLink>
                             </NavItem>
                         </Nav>
-                        
-                        </Collapse>
                     </div>
                 </Navbar>
             </>

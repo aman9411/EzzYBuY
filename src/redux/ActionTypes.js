@@ -1,6 +1,13 @@
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_COMMENTS ='ADD_COMMENTS';
+export const COMMENTS_FAILED = 'COMMENTS_FAILED';
+export const ADD_ADDRESS = 'ADD_ADDRESS';
+export const ADD_ADDRESS1 ='ADD_ADDRESS1';
+export const ADDRESS_FAILED = 'ADDRESS_FAILED';
 export const ADD_LOGIN = 'ADD_LOGIN';
 export const ADD_SIGNUP = 'ADD_SIGNUP';
+export const ADD_SIGNUPS ='ADD_SIGNUPS';
+export const SIGNUPS_FAILED = 'SIGNUPS_FAILED';
 export const MENS_LOADING = 'MENS_LOADING';
 export const MENS_FAILED = 'MENS_FAILED';
 export const ADD_MENS = 'ADD_MENS';

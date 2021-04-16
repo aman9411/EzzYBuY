@@ -7,7 +7,7 @@ export const OFFERCLOTHS =
 		image: '/assets/image/b1.webp',
 		category: 'men',
         label:'',
-        availableSizes: ["S", "M", "L", "XL"],
+        availableSizes: ['S', 'M', 'L', 'XL'],
 		price: 799,
 		featured: true,
 		description:'Blue and red checked formal shirt, has a spread collar, long sleeves, straight hem, one patch pocket.'                    
@@ -19,7 +19,7 @@ export const OFFERCLOTHS =
 		image: '/assets/image/b2.jpg',
 		category: 'men',
 		label:'',
-        availableSizes: ["S", "M", "L", "XL"],
+        availableSizes: ['S', 'M', 'L', 'XL'],
 		price: 699,
 		featured: true,
 		description:'Blue and Red checked formal shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket'
@@ -31,7 +31,7 @@ export const OFFERCLOTHS =
 		image: '/assets/image/b3.webp',
 		category: 'men',
 		label:'',
-        availableSizes: ["S", "M", "L", "XL"],
+        availableSizes: ['S', 'M', 'L', 'XL'],
 		price: 899,
 		featured: true,
 		description:'Blue checked casual shirt, has a spread collar, long sleeves, button placket, and curved hem.'
@@ -43,7 +43,7 @@ export const OFFERCLOTHS =
 		image: '/assets/image/b4.jpg',
 		category: 'men',
 		label:'',
-        availableSizes: ["S", "M", "L", "XL"],
+        availableSizes: ['S', 'M', 'L', 'XL'],
 		price: 950,
 		featured: true,
 		description:'Blue checked casual shirt, has a spread collar, long sleeves, curved hem, one patch pocket.'
@@ -55,19 +55,19 @@ export const OFFERCLOTHS =
             	image: '/assets/image/b5.webp',
             	category: 'men',
             	label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
             	price: 930,
             	featured: true,
             	description:'Maroon and blue checked casual shirt, has a spread collar, long sleeves, button placket, curved hem, one patch pocket.'   
         },
         {
                 id: 5,
-                name:'Men Blue Solid Formal Shirt',
+                name:'Men Sky-Blue Solid Formal Shirt',
                 brand:'Peter England',
                 image: '/assets/image/b6.webp',
                 category: 'men',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 999,
                 featured: true,
                 description:'Blue solid formal shirt, has a cutaway collar, long sleeves, button placket, curved hem, and 1 patch pocket'
@@ -79,7 +79,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b7.jpg',
                 category: 'men',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 850,
                 featured: true,
                 description:'White solid formal shirt, has a semi-cutaway collar, long sleeves, button placket, curved hem, and 1 patch pocket'
@@ -87,12 +87,12 @@ export const OFFERCLOTHS =
         },
         {
             id: 7,
-            name:'Men Black Slim Fit Jeans',
+            name:'Men Black Slim Tapered Fit Jeans',
             brand:'Levis',
             image: '/assets/image/b8.webp',
             category: 'men',
             label:'',
-            availableSizes: ["S", "M", "L", "XL"],
+            availableSizes: ['S', 'M', 'L', 'XL'],
             price: 2499,
             featured: true,
             description:'Black dark wash 5-pocket mid-rise jeans, clean look, no fade, has a button and zip closure, and waistband with belt loops'                    
@@ -104,19 +104,19 @@ export const OFFERCLOTHS =
             image: '/assets/image/b9.webp',
             category: 'men',
             label:'',
-            availableSizes: ["S", "M", "L", "XL"],
+            availableSizes: ['S', 'M', 'L', 'XL'],
             price: 1899,
             featured: true,
             description:'Blue dark wash 4-pocket mid-rise jeans, clean look, no fade, printed side taping detail, has a zip fly closure, and elasticated waistband with belt loops'
             },
             {
             id: 9,
-            name:'Men Blue Slim Fit Jeans',
+            name:'Men Blue Slim Tapered Fit Jeans',
             brand:'Levis',
             image: '/assets/image/b10.webp',
             category: 'men',
             label:'',
-            availableSizes: ["S", "M", "L", "XL"],
+            availableSizes: ['S', 'M', 'XL'],
             price: 2099,
             featured: true,
             description:'Blue dark wash 5-pocket mid-rise jeans, clean look with light fade, has a button and zip closure, waistband with belt loops'
@@ -128,19 +128,19 @@ export const OFFERCLOTHS =
             image: '/assets/image/b11.webp',
             category: 'men',
             label:'',
-            availableSizes: ["S", "M", "L", "XL"],
+            availableSizes: ['S', 'M', 'L', 'XL'],
             price: 2340,
             featured: true,
             description:'Blue medium wash 5-pocket low-rise jeans, low distress with heavy fade, has a button & zip closure, waistband with belt loops'
             },
             {
                  id: 11,
-                    name:'Men Blue Slim Fit Jeans',
+                    name:'Men Blue Slim Fit Tapered Jeans',
                     brand:'Levis',
                     image: '/assets/image/b12.webp',
                     category: 'men',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 1799,
                     featured: true,
                     description:'Blue dark wash 5-pocket mid-rise jeans, clean look, no fade, has a zip fly closure, and waistband with belt loops'   
@@ -152,7 +152,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b13.webp',
                     category: 'men',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 1999,
                     featured: true,
                     description:'Blue light wash 5-pocket mid-rise jeans, low distress, light fade, has a zip fly closure, and waistband with belt loops'
@@ -160,11 +160,11 @@ export const OFFERCLOTHS =
             {
                  id: 13,
                     name:'Men Navy Blue Skinny Fit Jeans',
-                    brand:'Denizen From Levis ',
+                    brand:'Denizen',
                     image: '/assets/image/b14.webp',
                     category: 'men',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'XL'],
                     price: 1099,
                     featured: true,
                     description:'Navy blue dark wash 5-pocket mid-rise jeans, clean look, no fade, has a button and zip closure, and waistband with belt loops'
@@ -177,7 +177,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b15.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 699,
                 featured: true,
                 description:'Make a statement with this green kurta that embodies the beauty of simple style.This straight kurta with pastel floral print all-over accents keyhole neck that makes for an ideal piece for both day and night'  
@@ -190,7 +190,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b16.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 599,
                 featured: true,
                 description:'Simple and neat, this equally distributed striped kurta with a straight and sharp shape could compliment any feminine anatomy. The designer embraced an easy notched round neckline to give an edgy feel to the kurta as the other features are basic and conventional. '  
@@ -203,7 +203,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b17.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'XL'],
                 price: 499,
                 featured: true,
                 description:'Pink and white printed straight kurta, has a round neck, three-quarter sleeves, straight hem, side slits'                    
@@ -215,7 +215,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b18.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 499,
                 featured: true,
                 description:'Orange, pink and white printed straight kurta, has a round neck, three-quarter sleeves, straight hem, side slits'                    
@@ -227,7 +227,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b19.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 799,
                 featured: true,
                 description:'If you are looking for an undeniably feminine design then look no further. This subtle, classy viscose rayon straight kurta with keyhole neck, block print with gold-tone accents is simple and elegant, this style will never go out of fashion.'                    
@@ -239,7 +239,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b20.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 599,
                 featured: true,
                 description:'Grey, pink and mustard yellow printed straight kurta, has a keyhole neck with button closure, three-quarter sleeves, straight hem, and side slits'                    
@@ -251,7 +251,7 @@ export const OFFERCLOTHS =
                 image: '/assets/image/b21.webp',
                 category: 'women',
                 label:'',
-                availableSizes: ["S", "M", "L", "XL"],
+                availableSizes: ['S', 'M', 'L', 'XL'],
                 price: 499,
                 featured: true,
                 description:'Black and Off-white printed straight kurta, has a round neck, three-quarter sleeves, straight hem, and side slits'                    
@@ -263,7 +263,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b22.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'XL'],
                     price: 1499,
                     featured: true,
                     description:'Navy Blue and White printed woven fit and flare tiered dress, has a round neck, sleeveless, an attached lining, and flared hem Comes with a neck piece'                    
@@ -275,7 +275,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b23.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 2999,
                     featured: true,
                     description:'Red and white printed kurta with churidar Red and white A-line knee length kurta, has a round neck, three-quarter sleeves, flared hem Red solid churidar, drawstring closure Red and white printed dupatta has a taped border'                    
@@ -287,7 +287,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b24.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 1499,
                     featured: true,
                     description:'Navy Blue embroidered straight kurta, has a V-neck, sleeveless, straight hem, and side slits'                    
@@ -299,7 +299,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b25.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 999,
                     featured: true,
                     description:'Pink and White striped straight kurta with floral printed detail, has a round neck, three-quarter sleeves, straight hem, and side slits'                    
@@ -311,7 +311,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b26.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 2499,
                     featured: true,
                     description:'White and red printed woven tiered maxi dress, has a V-neck, long sleeves, an attached lining, and flounce hem'                    
@@ -323,7 +323,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b27.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 1799,
                     featured: true,
                     description:'Green, yellow and off-white Bandhani print A-line kurta, has a round neck, three-quarter sleeves with tie-ups, and flared hem'                    
@@ -335,7 +335,7 @@ export const OFFERCLOTHS =
                     image: '/assets/image/b28.webp',
                     category: 'women',
                     label:'',
-                    availableSizes: ["S", "M", "L", "XL"],
+                    availableSizes: ['S', 'M', 'L', 'XL'],
                     price: 2999,
                     featured: true,
                     description:'Yellow and golden printed lehenga choli Yellow and golden printed blouse, has a round neck, short sleeves Yellow and golden printed ready to wear lehenga with embellished detail, has a drawstring closure, flared hem Red solid net dupatta, has taping border'                    
@@ -347,7 +347,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b29.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 999,
                         featured: true,
                         description:'Black and white solid kurta with churidar Black straight knee length kurta, has a mandarin collar, long sleeves, straight hem, side slits White Solid churidar, has elasticated waistband, slip-on closure'                    
@@ -359,7 +359,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b30.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 899,
                         featured: true,
                         description:'Purple and white solid kurta with churidar Purple and white straight knee length kurta, has a mandarin collar, long sleeves, straight hem, side slits White solid churidar, has elasticated waistband, slip-on closure'                    
@@ -371,7 +371,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b1.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 1999,
                         featured: true,
                         description:'Gold-Toned solid kurta with churidar Gold-Toned straight knee length kurta, has a mandarin collar, long sleeves, straight hem, side slits Gold-Toned SoGold-coloured solid kurta with churidar Gold-coloured straight knee length kurta, has a mandarin collar, long sleeves, straight hem, side slits Gold-coloured solid churidar,  has elasticated waistband, drawstring closure Red and gold-coloured printed Nehru jacket, has a mandarin collarlid  churidar, has elasticated waistband, drawstring closure'                    
@@ -383,7 +383,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b32.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 999,
                         featured: true,
                         description:'Red self design kurta with palazzos Red anarkali calf length kurta, has a mandarin collar, three-quarter sleeves, flared hem Red solid palazzos, slip-on closure'                    
@@ -395,7 +395,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b34.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 999,
                         featured: true,
                         description:'Yellow printed kurta with palazzos Yellow anarkali calf length kurta, has a mandarin collar, three-quarter sleeves, flared hem Yellow solid palazzos, slip-on closure'                    
@@ -407,7 +407,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b35.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 1099,
                         featured: true,
                         description:'Black printed kurta with palazzos Black anarkali calf length kurta, has a keyhole neck, three-quarter sleeves, flared hem Black solid palazzos, slip-on closure'                    
@@ -419,7 +419,7 @@ export const OFFERCLOTHS =
                         image: '/assets/image/b32.webp',
                         category: 'kids',
                         label:'',
-                        availableSizes: ["S", "M", "L", "XL"],
+                        availableSizes: ['S', 'M', 'L', 'XL'],
                         price: 1150,
                         featured: true,
                         description:'Peach-Coloured printed kurta with palazzos Peach-Coloured anarkali calf length kurta, has a keyhole neck, three-quarter sleeves, flared hem Peach-Coloured solid palazzo, slip-on closure'                    

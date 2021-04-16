@@ -6,6 +6,33 @@ import { Loading } from './LoadingComponent';
 import formatCurrency from '../util';
 
 
+class SelectSize extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      size: ""
+  };
+}
+ 
+
+  render() {
+    return(
+      <div className="brand_button">
+      {this.props.offercloth.availableSizes.map((x) => (
+        <span>
+          {" "}
+          <Button outline className="mb-2" value={x} onClick={e => this.props.handleSize(e, "value")}>{x}</Button>
+        </span>
+      ))}
+      </div>
+    );
+  }
+}
+
+
+
+
+
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -36,25 +63,25 @@ handleComment(values) {
 render() {
   return(
     <div>
-          <div className="">
-          <div className="wishlist d-flex">
+          <div>
+          <div className="d-flex">
             {/* <Link to={`/checkout`} > */}
-            <Button className="mr-3" type="submit" value="submit" color="primary" onClick={()=> this.props.addToCart(this.props.offercloth)} ><span className="fa fa-shopping-bag fa-lg"> ADD TO BAG </span></Button>
+            <Button className="mr-3 addto" type="submit" value="submit" color="primary" onClick={()=> this.props.addToCart(this.props.offercloth)} ><span className="fa fa-shopping-cart "> ADD TO BAG </span></Button>
                       {/* </Link> */}
-            <Button outline className="m-0" type="submit" value="submit" onClick={()=> this.props.addToWishlist(this.props.offercloth)}><span className="fa fa-heart fa-lg"> WISHLIST </span></Button>
+            <Button outline className="addto" type="submit" value="submit" onClick={()=> this.props.addToWishlist(this.props.offercloth)}><span className="fa fa-heart "> WISHLIST </span></Button>
           </div>
           <div className="description">
           <h4 className="mt-4">DELIVERY OPTIONS</h4>
-          <p className="m-4">100% Original Products<br />Free Delivery on order above Rs. 799<br />Pay on delivery might be available<br />Easy 30 days returns and exchanges<br />Try &amp; Buy might be available</p>
+          <p>100% Original Products<br />Free Delivery on order above Rs. 799<br />Pay on delivery might be available<br />Easy 30 days returns and exchanges<br />Try &amp; Buy might be available</p>
           <h4 className="mt-3">PRODUCT DETAILS</h4>
           
           <RenderDescription offercloth={this.props.offercloth} />
-          </div>
-          </div> 
-          <h4 className="mt-3 mb-3">Comments</h4>
-       <Button className="ml-3 wishlist" outline onClick={this.toggleForm}><span className="fa fa-pencil fa-lg">Submit Comment</span></Button> 
+          
+          <h4>Comments</h4>
+          <RenderComments comments= {this.props.comments}/>
+       <Button className="wishlist" outline onClick={this.toggleForm}><span className="fa fa-pencil"> Submit Comment</span></Button> 
        <Modal isOpen={this.state.isFormOpen} toggle={this.toggleForm}>
-                   <ModalHeader toggle={this.toggleForm}>Submit Comment</ModalHeader>
+                   <ModalHeader toggle={this.toggleForm}><span className="fa fa-pencil"></span> Submit Comment</ModalHeader>
                     <ModalBody>
                           <LocalForm onSubmit={(values) => {this.handleComment(values)} }>
                                <Row className="form-group">
@@ -111,7 +138,7 @@ render() {
 
                                </Row>
                                <Row className="form-group">
-                                 <Col md={{sixe: 10, offset: 2}}>
+                                 <Col md={12}>
                                <Button type="submit" value="submit" color="primary">Submit</Button>
                                </Col>
                                </Row>
@@ -119,6 +146,9 @@ render() {
                     </ModalBody>
                  </Modal>
     </div>
+
+    </div>
+    </div> 
          
   );
 }
@@ -128,7 +158,7 @@ render() {
 function RenderDescription({offercloth}) {
   return(
       <div>
-        <p className="m-4">{offercloth.description}</p>
+        <p>{offercloth.description}</p>
       </div>
   );
 }
@@ -138,33 +168,40 @@ function RenderDescription({offercloth}) {
 function RenderDish({offercloth}) {
       return(
         <div className="col-12 col-md-5 m-1">
-          <Card>
+          <Card className="selective_product">
              <CardImg src={offercloth.image} alt={offercloth.name} />
-              </Card>
-           </div>
+          </Card>
+        </div>
           );
 
 }
 
+
+function RenderComments({comments}) {
+  const coms = comments.map((com) => {
+  
+    return(
+            <li key={com.id}>
+              <p>{com.comment}</p>
+              <p>--{com.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(com.date)))}</p>
+            </li>
+        );
+  }); 
+  
+  return(
+    <div className="col-12 col-md m-2">
+      <ul className="list-unstyled">
+      {coms}
+      </ul>
+    </div>
+  );
+}
+
 function RenderDetails({comments, addComment, dishId, offercloth, addToCart, addToWishlist}) {
           if (comments != null) {
-  
-          const coms = comments.map((com) => {
-  
-            return(
-                    <li key={com.id}>
-                      <p>{com.comment}</p>
-                      <p>--{com.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(com.date)))}</p>
-                    </li>
-                );
-          });
-  
           return(
             <div className="col-12 col-md-5 m-2">
-              <CommentForm dishId={dishId} addComment={addComment} offercloth={offercloth} addToCart={addToCart} addToWishlist={addToWishlist} />
-              <ul className="list-unstyled">
-              {coms}
-              </ul>
+              <CommentForm dishId={dishId} addComment={addComment} offercloth={offercloth} addToCart={addToCart} addToWishlist={addToWishlist} comments={comments} />
             </div>
           );
     
@@ -201,7 +238,7 @@ function RenderDetails({comments, addComment, dishId, offercloth, addToCart, add
       return (
         <div className="container">
            <div className="row ml-5">
-            <Breadcrumb>
+            <Breadcrumb className="bread">
                <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
                <BreadcrumbItem active>{props.offercloth.brand}</BreadcrumbItem>
             </Breadcrumb>
@@ -210,20 +247,16 @@ function RenderDetails({comments, addComment, dishId, offercloth, addToCart, add
           <RenderDish offercloth = {props.offercloth} />
           <div className="col-12 col-md m-3">
           <div className="col-12">
-              <h3>{props.offercloth.brand}</h3>
+              <h3 className="brand_name">{props.offercloth.brand}</h3>
               <h6 className="visible">{props.offercloth.name}</h6>
               <hr />
             </div>
-            <h2 className="ml-3 mt-3">{formatCurrency(props.offercloth.price)}</h2>
-            <p className="tax mt-1 ml-3">inclusive of all taxes</p>
-            <h4 className="ml-3 mb-3">SELECT SIZE</h4>
-            <span className="ml-3">
-            {props.offercloth.availableSizes.map((x) => (
-                  <span>
-                    {" "}
-                    <Button outline className="ml-1 mb-3">{x}</Button>
-                  </span>
-                ))}
+            <h2 className=" brand_price">{formatCurrency(props.offercloth.price)}</h2>
+            <p className="tax">inclusive of all taxes</p>
+            <h4 className=" brand_size">SELECT SIZE</h4>
+
+            <span>
+                <SelectSize offercloth={props.offercloth} handleSize={props.handleSize} />
             </span>
           
           <RenderDetails comments={props.comments}

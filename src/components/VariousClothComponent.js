@@ -4,59 +4,96 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import formatCurrency from '../util';
 import Filter from './Filter';
-
-
+ 
 
 class FilterProduct extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
-      // offercloth: data.offercloth,
+      offercloth: props.offercloth,
       size: "",
-      sort: ""
+      sort: "",
+      color: ""
   };
 }
 
 
-// sortProducts = (event) => {
-//   const sort = event.target.value;
-//   console.log(event.target.value);
-//   this.setState({
-//     sort: sort,
-//     offercloth: this.state.offercloth.slice().sort((a, b) => (
-//       sort === "lowest"?
-//       ((a.price < b.price)? 1:-1):
-//       sort === "highest"?
-//       ((a.price > b.price)? 1:-1):
-//       ((a.id > b.id)? 1:-1)
-//     ))
-//   });
-// };
+sortProducts = (event) => {
+  const sort = event.target.value;
+  console.log(event.target.value);
+  this.setState({
+    sort: sort,
+    offercloth: this.state.offercloth
+    .slice()
+    .sort((a, b) => 
+      sort === "Lowest"
+       ? a.price < b.price
+         ? 1
+         :-1
+       : sort === "Highest"
+       ? a.price > b.price
+         ? 1
+         :-1
+       :a.id > b.id
+         ? 1
+         :-1   
+    )
+  });
+};
 
 
-// filterProducts = (event) => {
-//     console.log(event.target.value);
-//     if(event.target.value === "") {
-//       this.setState({
-//         size: event.target.value, offercloth:data.offercloth
-//       });
-//     } else{
-//       this.setState({
-//         size: event.target.value,
-//         offercloth: data.offercloth.filter(offercloth => offercloth.availableSizes.indexOf(event.target.value) >= 0)
-//       })
-//     }   
-// };
+filterProducts = (event) => {
+    console.log(event.target.value);
+    if(event.target.value === "All") {
+      this.setState({
+        size: event.target.value, offercloth: this.props.offercloth
+      });
+    } else{
+      this.setState({
+        size: event.target.value,
+        offercloth: this.props.offercloth.filter(
+          (offercloths) => offercloths.availableSizes.indexOf(event.target.value) >= 0
+          ),
+      });
+    }   
+};
+
+filterProductsColor = (event) => {
+  console.log(event.target.value);
+  if(event.target.value === "All") {
+    this.setState({
+      color: event.target.value, offercloth: this.props.offercloth
+    });
+  } else{
+    this.setState({
+      color: event.target.value,
+      offercloth: this.props.offercloth.filter(
+        (offercloths) => offercloths.name.indexOf(event.target.value) >= 0
+        ),
+    });
+  }   
+};
 
 
 render() {
+
+ const offercloth = this.state.offercloth.map((offercloth) => {
+    return (
+      <RenderBrandsItem offercloth={offercloth} />
+    );
+  });
+
   return(
-    <Filter 
-    // count={this.state.offercloth.length}
-    size={this.state.size}
-    sort={this.state.sort}
-    filterProducts={this.filterProducts}
-    sortProducts={this.sortProducts} />       
+    <div>
+            <Filter 
+            count={this.state.offercloth.length}
+            size={this.state.size}
+            sort={this.state.sort}
+            filterProducts={this.filterProducts}
+            sortProducts={this.sortProducts}
+            filterProductsColor={this.filterProductsColor} /> 
+            {offercloth}
+    </div>      
   );
 }
 }
@@ -66,13 +103,13 @@ render() {
 function RenderBrandsItem({offercloth}) {
   return(
 
-        <Card className="offerItem">
+        <Card className="backg1 m-3 offerItem2">
            <Link className="link-text" to={`/brandsclothing/${offercloth.id}`} >
              <CardImg src={offercloth.image} alt={offercloth.name} />
              <CardBody>
                 {offercloth.brand}<br />
                 <p className="visible">{offercloth.name}</p>
-                {formatCurrency(offercloth.price)}
+                <p className="mrp">{formatCurrency(offercloth.price)}</p>
              </CardBody>
            </Link>
         </Card>
@@ -82,15 +119,7 @@ function RenderBrandsItem({offercloth}) {
     
   
 const Various = (props) => {
-        const offercloth = props.offercloths.offercloths.map((offercloth) => {
-          return (
-            
-            <div className="col-12 col-md-2 m-4">
-            <RenderBrandsItem offercloth={offercloth} />
-           </div>
-            
-          );
-      });
+
 
       if (props.offercloths.isLoading) {
         return(
@@ -123,13 +152,10 @@ const Various = (props) => {
               <hr />
             </div>
           </div>
-          <div className="row align-items-center m-2" >
-          <FilterProduct offercloth={props.offercloth}/>
+          <div className="row align-items-center">
+          <div className="main2">
+          <FilterProduct offercloth={props.offercloths.offercloths}/>
           </div>
-          <div className="row align-items-center m-2" >
-
-                {offercloth}
-
           </div>
         </div>
       );

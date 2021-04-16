@@ -55,17 +55,17 @@ export const BRANDS =
         featured: false,
         description:'50% OF ON BEST STYLES'
         },
-        {
-        id: 5,
-        name:'ElaiCheese Cake',
-        image: '/assets/images/a6.jpg',
-        category: 'dessert',
-        label:'',
-        price:'2.99',
-        link: 'brandsclothing',
-        featured: false,
-        description:'50% OF ON BEST STYLES'
-        }
+        // {
+        // id: 5,
+        // name:'ElaiCheese Cake',
+        // image: '/assets/images/a6.jpg',
+        // category: 'dessert',
+        // label:'',
+        // price:'2.99',
+        // link: 'brandsclothing',
+        // featured: false,
+        // description:'50% OF ON BEST STYLES'
+        // }
         // ,
         // {
         // id: 6,

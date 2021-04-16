@@ -2,6 +2,17 @@
 
 body { font-family: sans-serif; }
 
+body video{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 130%;
+	object-fit: fill;
+	opacity: 0.2;
+    pointer-events: none;
+}
+
 
 .row-header{
     margin:0px auto;
@@ -37,6 +48,11 @@ address{
                   inset 0 0 0px rgb(211,211,211,.3);
 }
 
+.nav-brand {
+    width: 170px;
+    height: 50px;
+}
+
 .username {
     font-size: .5em;
     font-weight: 700;
@@ -57,14 +73,17 @@ address{
     background-color: rgb(214, 69, 105);
     border-radius: 100%;
 }
-
+.signup_details{
+    color: green;
+    font-size: 1.1em;
+}
 
 .hyper{
     font-weight: 700;
     margin-left: 20px;;
 }
 .men{
-    margin-left: 30px;
+    margin-left: 10px;
 }
 .women{
     margin-left: 10px;
@@ -100,6 +119,7 @@ address{
     width: 100%;
     height: 450px;
     margin: 15px 10px 10px 10px;
+    /* mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
 }
 .heading{
     margin-top: 60px;
@@ -123,15 +143,27 @@ address{
     /* background-color: crimson; */
     text-align: center;
 }
+
+.main2{
+    width: 100%;
+    height: 100%;
+    margin-left: -25px;
+}
+
+.main2{
+    width: 100%;
+    height: 100%;
+    margin-left: 60px;
+}
+
 .backg{
     background-color: rgb(211,211,211,.2);
     width: 17.8%;
     height: 100%;
     text-align: center;
-    font-size: 1em;
+    font-size: 1em  ;
     font-weight: 700;
     float: left;
-    /* background-color: cadetblue; */
 }
 .backg img{
     width: 80%;
@@ -146,6 +178,20 @@ address{
                   inset 0 0 0px rgb(211,211,211,.9);
     
 }
+
+.backg1{
+    background-color: rgb(211,211,211,.2);
+    width: 17%;
+    height: 100%;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 700;
+    float: left;
+    margin: 21px;
+    /* background-color: cadetblue; */
+}
+
+
 .back p{
     margin: 20px 20px 20px 20px;
 }
@@ -177,13 +223,15 @@ address{
     margin: 10px;
     border: 0.1px solid rgb(214, 212, 212);
 }
+
+
 .mensitem{
-    width: 70%;
+    width: 80%;
     height: 200px;
     margin: 10px;
     border: 0.1px solid rgb(233, 231, 231);
 }
-.mensitem > img{
+.mensitem  img{
     width: 130px;
     margin: 10px;
 }
@@ -192,6 +240,7 @@ address{
     height: 40px;
     margin-top: auto;
     margin-bottom: 10px;
+    margin-left: auto;
     margin-right: 10px;
 }
 .mensitem:hover{
@@ -205,6 +254,45 @@ address{
                   0 0 15px rgb(211,211,211,.9),
                   0 0 15px rgb(211,211,211,.9),
                   inset 0 0 0px rgb(211,211,211,.9);
+}
+
+.backg1:hover{
+    box-shadow: 0 0 15px rgb(211,211,211,.9),
+                  0 0 15px rgb(211,211,211,.9),
+                  0 0 15px rgb(211,211,211,.9),
+                  inset 0 0 0px rgb(211,211,211,.9);
+}
+
+.offerItem2:hover{
+    box-shadow: 0 0 15px rgb(211,211,211,.9),
+                  0 0 15px rgb(211,211,211,.9),
+                  0 0 15px rgb(211,211,211,.9),
+                  inset 0 0 0px rgb(211,211,211,.9);
+}
+
+.addto span{
+    width: 150px;
+    font-size: 1em;
+    
+}
+
+.brand_price{
+    margin-left: 20px;;
+}
+.tax{
+    margin-left: 20px;
+}
+
+.brand_size{
+    margin: 20px;
+}
+
+.brand_button{
+    margin-left: 25px;
+}
+
+.description p{
+    margin-left: 22px;
 }
 
 .circle{
@@ -270,9 +358,10 @@ address{
 }
 
 .wishlistItem{
-    width:220px;
+    width:240px;
     text-align: center;
-    border: .1px solid rgb(211,211,211,.4);
+    margin-left: 31px;
+    border: .4px solid rgb(211,211,211,.4);
 }
 
 .wishlistItem:hover{
@@ -281,3 +370,1041 @@ address{
                   0 0 15px rgb(211,211,211,.9),
                   inset 0 0 0px rgb(211,211,211,.9);
 }
+
+.wishlistCount{
+    text-align: center  ;
+}
+
+.checkout{
+    display: flex;
+}
+
+.project{
+    display: flex;
+  }
+  .shipping{
+    width: 90%;
+    border-right: .4px solid rgb(211,211,211,.9);
+  }
+  
+  .address{
+    width: 100%;
+    display: flex;
+  }
+  .address p{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 40px;
+    margin-right: 50px;
+    margin-top: 50px;
+  }
+  .address button{
+    width: 130px;
+    height: 30px;
+    color: #000;
+    background-color: white;
+    font-size: .6em;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: .2px solid black;
+  
+  }
+
+  .address button:hover{
+    background-color: black;
+    color: white;  
+  }
+  
+  .d_add{
+    font-size: 1.2em;
+    margin-left: 70px;
+  }
+  
+  .d_add h6{
+    font-size: .7em;
+    font-weight: bold;
+    opacity: .5;
+    margin-bottom: 15px;
+  }
+  
+  .d_add > div:nth-child(2){
+    margin-bottom: 100px;
+  }
+  
+  .default{
+    width: 70%;
+    padding: 10px;
+    border: .2px solid rgb(211,211,211,.9);
+    margin-bottom: 30px;
+  }
+
+  .default Input{
+      margin-top: 7px;
+      margin-left: 2px;
+  }
+
+  .default strong{
+      margin-left: 25px;
+  }
+  
+  .default span{
+    color: green;
+    font-size: .5em;
+    border: 1px solid green;
+    border-radius: 8px;
+    padding: 2px;
+  }
+  
+  .default p{
+    font-size: .8em;
+    margin-top: 10px;
+    margin-left: 25px;
+    opacity: .7;
+  }
+  .default a{
+    color: #DC143C;
+    opacity: .8;
+    margin-left: 10px;
+  
+  }
+  
+  .default button{
+    width: 130px;
+    height: 30px;
+    color: #000;
+    background-color: white;
+    font-size: .7em;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: .2px solid black;
+  }
+
+  .default button:hover{
+    color: white;
+    background-color: black;
+  }
+  
+  .default:hover{
+      box-shadow: 0 0 15px rgb(211,211,211,.9),
+                    0 0 15px rgb(211,211,211,.9),
+                    0 0 15px rgb(211,211,211,.9),
+                    inset 0 0 0px rgb(211,211,211,.9);
+  }
+  
+  .total{
+    width: 50%;
+    margin-top: 53px;
+    margin-left: 20px;
+  }
+  
+  .total p{
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .product{
+    width: 100%;
+    margin: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 1px solid rgb(211,211,211,.9);
+    animation: right-in 0.5s ease-in forwards;
+    animation-delay: 0s;
+  }
+  .product img{
+    width: 20%;
+  }
+  .amount{
+    text-align: right;
+  }
+  .amount h6{
+    margin-top: 30px;
+    opacity: .5;
+  }
+  .amount p{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: .9em;
+    font-weight: 400;
+    opacity: .8;
+  }
+  .amount span{
+    text-align: right;
+    margin-left: 50px;
+  }
+  
+  .product:hover{
+    border: 1px solid black;
+  }
+  
+
+
+
+/* ---------Media--------- */
+
+
+@media(max-width:1250px) and (min-width:1031px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 120px;
+        margin-left: 15px;
+    }
+
+    .find{
+        display: none;
+    }
+  }
+
+@media(max-width:1030px) and (min-width:700px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 120px;
+        margin-left: 15px;
+    }
+
+    .find{
+        display: none;
+    }
+  }
+
+  @media(max-width:699px) and (min-width:540px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 120px;
+        margin-left: 135px;
+    }
+
+    .find{
+        display: none;
+    }
+
+    .notification{
+        top: 13px;
+        right: 10px;
+    }
+
+    .slider{
+        height: 250px;
+    }
+    .slider img{
+        height: 240px;
+    }
+
+    .heading h2{
+        font-size: 1.4em;
+    }
+
+    .offerItem{
+        width: 127px;
+        font-size: .8em;
+        float: left;
+        margin: 15px;
+    }
+
+    .offerItem1{
+        width: 137px;
+        float: left;
+        margin: 9px;
+        font-size: .8em;
+        font-weight: bold;
+        float: left;
+    }
+    .offerItem1 img{
+        margin-left: 15px;
+    }
+
+    .main p{
+        font-size: .8em;
+    }
+
+    .main2{
+        margin-left: 22px;
+    }
+
+    .offerItem2{
+        width: 133px;
+    }
+
+    .visible{
+        font-size: .8em;
+    }
+
+    .addto span{
+        width: 100px;
+        font-size: .8em;
+    }
+
+    .description h4{
+        width: 100%;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .description p{
+        width: 70%;
+    }
+
+    .wishlist{
+        width: 70%;
+    }
+
+    .wish{
+        margin-left: 0px;
+    }
+
+    .empty{
+        width: 50%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-right: none;
+    }
+
+    .empty > img{
+        width: 300px;
+        margin-left: -70px;
+    }
+
+    .checkout{
+        display: inline;
+        margin-left: 10px;
+    }
+
+    .checkout_product p{
+        font-size: 1em;
+    }
+
+    .menitem{
+        margin: 2px;
+    }
+
+    .mensitem{
+        width: 105%;
+        margin-left: -9px;
+        margin-bottom: 20px;
+    }
+
+    .wishlistItem{
+        margin-left: 50px;
+        margin-bottom: 20px;;
+    }
+  }
+
+@media(max-width:539px) and (min-width:400px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 120px;
+        height: 40px;
+        margin-left: 70px;
+    }
+
+    .find{
+        display: none;
+    }
+
+    .notification{
+        top: 13px;
+        right: 10px;
+    }
+
+    .slider{
+        height: 190px;
+    }
+    .slider img{
+        height: 170px;
+    }
+
+    .heading h2{
+        font-size: 1.2em;
+    }
+
+    .offerItem{
+        width: 137px;
+        font-size: .8em;
+        float: left;
+        margin: 15px;
+    }
+
+    .offerItem1{
+        width: 147px;
+        float: left;
+        margin: 9px;
+        font-size: .8em;
+        font-weight: bold;
+        float: left;
+    }
+    .offerItem1 img{
+        margin-left: 15px;
+    }
+
+    .main p{
+        font-size: .8em;
+    }
+
+    .main2{
+        margin-left: 22px;
+    }
+
+    .offerItem2{
+        width: 153px;
+    }
+
+    .visible{
+        font-size: .8em;
+    }
+
+    .addto span{
+        width: 100px;
+        font-size: .8em;
+    }
+
+    .description h4{
+        width: 100%;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .description p{
+        width: 70%;
+    }
+
+    .wishlist{
+        width: 70%;
+    }
+
+    .wish{
+        margin-left: -12px;
+    }
+
+    .empty{
+        width: 50%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-right: none;
+    }
+
+    .empty > img{
+        width: 300px;
+        margin-left: -70px;
+    }
+
+    .checkout{
+        display: inline;
+        margin-left: 10px;
+    }
+
+    .menitem{
+        margin: 2px;
+    }
+
+    .mensitem{
+        width: 105%;
+        margin-left: -9px;
+        margin-bottom: 20px;
+    }
+
+    .wishlistItem{
+        margin-left: -10px;
+        margin-bottom: 20px;;
+    }
+  }
+
+  @media(max-width:399px) and (min-width:351px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 100px;
+        height: 30px;
+        margin-left: 55px;
+    }
+
+    .find{
+        display: none;
+    }
+
+    .icon{
+        width: 5px;
+        margin-left: -10px;
+    }
+
+    .notification{
+        top: 13px;
+        right: 10px;
+    }
+
+    .slider{
+        height: 190px;
+    }
+    .slider img{
+        height: 170px;
+    }
+
+    .heading h2{
+        font-size: 1.2em;
+    }
+
+    .offerItem{
+        width: 115px;
+        font-size: .8em;
+        float: left;
+        margin: 10px;
+    }
+
+    .offerItem1{
+        width: 130px;
+        float: left;
+        margin: 7px;
+        font-size: .8em;
+        font-weight: bold;
+        float: left;
+    }
+    .offerItem1 img{
+        margin-left: 11px;
+    }
+
+    .main p{
+        font-size: .8em;
+    }
+
+    .main2{
+        margin-left: 22px;
+    }
+
+    .offerItem2{
+        width: 125px;
+    }
+
+    .visible{
+        font-size: .8em;
+    }
+
+    .selective_product{
+        margin-left: -8px;
+    }
+
+    .brand_name{
+        margin-left: -30px;
+    }
+
+    .brand_price{
+        font-size: 1.5em;
+        margin-left: -10px;
+    }
+    .tax{
+        margin-left: -10px;
+    }
+
+    .brand_size{
+        font-size: 1em;
+        margin-left: -10px;
+        margin-bottom: 10px;
+    }
+
+    .brand_button{
+        margin-left: 0px;
+    }
+
+    .addto:nth-child(1){
+        width: 120px;
+        margin-left: -26px;
+    }
+
+    .addto:nth-child(2){
+        width: 120px;
+    }
+
+    .addto span{
+        width: 100px;
+        font-size: .8em;
+    }
+
+    .description h4{
+        width: 100%;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-left: -20px;
+    }
+
+    .description p{
+        width: 70%;
+        margin-left: -1px;
+    }
+
+    .description Button{
+        width: 100%;
+    }
+
+    .wishlist{
+        width: 70%;
+    }
+
+    .wish{
+        margin-left: -3px;
+    }
+
+    .empty{
+        width: 50%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-right: none;
+    }
+
+    .empty > img{
+        width: 300px;
+        margin-left: -70px;
+    }
+
+    .checkout{
+        display: inline;
+        margin-left: 10px;
+    }
+
+    .menitem{
+        margin: 2px;
+    }
+
+    .mensitem{
+        width: 105%;
+        height: 160px;
+        margin-left: -9px;
+        margin-bottom: 20px;
+    }
+
+    .mensitem img{
+        width: 90px;
+    }
+
+    .mensitem Button{
+        font-size: .8em;
+    }
+
+    .checkout_product p{
+        font-size: .7em;
+    }
+
+    .wishlistItem{
+        margin-left: -38px;
+        margin-bottom: 20px;;
+    }
+  }
+
+  @media(max-width:350px) and (min-width:320px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 100px;
+        height: 30px;
+        margin-left: 35px;
+    }
+
+    .find{
+        display: none;
+    }
+
+    .icon{
+        width: 5px;
+        margin-left: -10px;
+    }
+
+    .notification{
+        top: 13px;
+        right: 10px;
+    }
+
+    .slider{
+        height: 190px;
+    }
+    .slider img{
+        height: 170px;
+    }
+
+    .heading h2{
+        font-size: 1em;
+    }
+
+    .offerItem{
+        width: 97px;
+        font-size: .8em;
+        float: left;
+        margin: 5px;
+    }
+
+    .offerItem1{
+        width: 107px;
+        float: left;
+        margin: 9px;
+        font-size: .8em;
+        font-weight: bold;
+        float: left;
+    }
+    .offerItem1 img{
+        margin-left: 11px;
+    }
+
+    .main p{
+        font-size: .8em;
+    }
+
+    .main2{
+        margin-left: 22px;
+    }
+
+    .offerItem2{
+        width: 105px;
+    }
+
+    .visible{
+        display: none;
+        font-size: .8em;
+    }
+
+    .mrp{
+        font-size: .7em;
+        font-weight: bold;
+        margin: 5px;
+    }
+
+    .selective_product{
+        margin-left: -5px;
+    }
+
+    .brand_name{
+        margin-left: -30px;
+    }
+
+    .brand_price{
+        font-size: 1.5em;
+        margin-left: -10px;
+    }
+    .tax{
+        margin-left: -10px;
+    }
+
+    .brand_size{
+        font-size: 1em;
+        margin-left: -10px;
+        margin-bottom: 10px;
+    }
+
+    .brand_button{
+        margin-left: 0px;
+    }
+
+    .addto:nth-child(1){
+        width: 110px;
+        margin-left: -46px;
+    }
+
+    .addto:nth-child(2){
+        width: 110px;
+        margin-left: -10px;
+    }
+
+    .addto span{
+        width: 85px;
+        font-size: .7em;
+    }
+
+    .description h4{
+        width: 100%;
+        font-size: 1em;
+        font-weight: bold;
+        margin-left: -30px;
+    }
+
+    .description p{
+        width: 90%;
+        margin-left: -15px;
+    }
+
+    .wishlist{
+        width: 80%;
+        margin-left: -15px;
+    }
+
+    .wishlist span{
+        font-size: .7em;
+        font-weight: bold;
+    }
+
+    .wish{
+        margin-left: -3px;
+    }
+
+    .empty{
+        width: 50%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-right: none;
+    }
+
+    .empty > img{
+        width: 300px;
+        margin-left: -70px;
+    }
+
+    .checkout{
+        display: inline;
+        margin-left: 10px;
+    }
+
+    .menitem{
+        margin: 2px;
+    }
+
+    .mensitem{
+        width: 105%;
+        height: 160px;
+        margin-left: -9px;
+        margin-bottom: 20px;
+    }
+
+    .mensitem img{
+        width: 90px;
+    }
+
+    .mensitem Button{
+        font-size: .8em;
+    }
+
+    .checkout_product p{
+        font-size: .7em;
+    }
+
+    .wishlistItem{
+        margin-left: -58px;
+        margin-bottom: 20px;;
+    }
+  }
+
+  @media(max-width:319px) and (min-width:279px){
+
+    .navbr{
+        left: 0px;
+    }
+
+    .nav-brand {
+        width: 100px;
+        height: 30px;
+        margin-left: 20px;
+    }
+
+    .find{
+        display: none;
+    }
+
+    .icon{
+        width: 5px;
+        margin-left: -10px;
+    }
+
+    .notification{
+        top: 13px;
+        right: 10px;
+    }
+
+    .slider{
+        height: 190px;
+    }
+    .slider img{
+        height: 170px;
+    }
+
+    .heading h2{
+        font-size: 1em;
+    }
+
+    .offerItem{
+        width: 182px;
+        font-size: .8em;
+        float: left;
+        margin: 15px;
+    }
+
+    .offerItem1{
+        width: 187px;
+        float: left;
+        margin: 9px;
+        font-size: .8em;
+        font-weight: bold;
+        float: left;
+    }
+    .offerItem1 img{
+        margin-left: 18px;
+    }
+
+    .main p{
+        font-size: .8em;
+    }
+
+    .main2{
+        margin-left: 22px;
+    }
+
+    .offerItem2{
+        width: 200px;
+    }
+
+    .visible{
+        display: none;
+        font-size: .8em;
+    }
+
+    .bread{
+        margin-left: -21px;
+    }
+
+    .mrp{
+        font-size: .7em;
+        font-weight: bold;
+        margin: 5px;
+    }
+
+    .selective_product{
+        margin-left: -5px;
+    }
+
+    .brand_name{
+        margin-left: -40px;
+    }
+
+    .brand_price{
+        font-size: 1.5em;
+        margin-left: -20px;
+    }
+    .tax{
+        margin-left: -20px;
+    }
+
+    .brand_size{
+        font-size: 1em;
+        margin-left: -20px;
+        margin-bottom: 10px;
+    }
+
+    .brand_button{
+        margin-left: -10px;
+    }
+
+    .addto:nth-child(1){
+        width: 110px;
+        margin-left: -66px;
+    }
+
+    .addto:nth-child(2){
+        width: 110px;
+        margin-left: -10px;
+    }
+
+    .addto span{
+        width: 85px;
+        font-size: .7em;
+    }
+
+    .description h4{
+        width: 100%;
+        font-size: .8em;
+        font-weight: bold;
+        margin-left: -40px;
+    }
+
+    .description p{
+        width: 90%;
+        margin-left: -25px;
+        font-size: .7em;
+    }
+
+    .description Button{
+        width: 100%;
+        margin-left: -30px;
+    }
+
+    .wishlist{
+        width: 80%;
+        margin-left: -15px;
+    }
+
+    .wishlist span{
+        font-size: .7em;
+        font-weight: bold;
+    }
+
+    .wish{
+        margin-left: -3px;
+    }
+
+    .empty{
+        width: 50%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-right: none;
+    }
+
+    .empty > img{
+        width: 300px;
+        margin-left: -70px;
+    }
+
+    .checkout{
+        display: inline;
+        margin-left: 10px;
+    }
+
+    .menitem{
+        margin: 2px;
+    }
+
+    .mensitem{
+        width: 105%;
+        height: 150px;
+        margin-left: -9px;
+        margin-bottom: 20px;
+    }
+
+    .mensitem img{
+        width: 90px;
+    }
+
+    .mensitem Button{
+        font-size: .7em;
+        margin-left: -20px;
+    }
+
+    .checkout_product p{
+        font-size: .7em;
+    }
+
+    .wishlistItem{  
+        width: 150%;
+        margin-left: -58px;
+        margin-bottom: 20px;
+    }
+    .wishlistItem img{
+        width: 70%;
+        height: 200px;
+    }
+  }

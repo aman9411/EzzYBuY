@@ -16,6 +16,7 @@ import { createForms } from 'react-redux-form';
 import { InitialFeedback } from './forms';
 import { Login } from './login';
 import { Signups } from './signup';
+import { Address } from './address';
 
 export const ConfigureStore = () => {
     const store = createStore(
@@ -30,6 +31,7 @@ export const ConfigureStore = () => {
              comments: Comments,
              login: Login,
              signups: Signups,
+             address: Address,
              promotions: Promotions,
              leaders: Leaders,
              baskets: Baskets,

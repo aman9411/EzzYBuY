@@ -7,15 +7,97 @@ import { DEALS } from '../shared/deals';
 import { CLOTHS } from '../shared/cloths';
 import { OFFERCLOTHS } from '../shared/offercloths';
 
-export const addComment = (dishId, rating , author, comment) => ({
+import { baseUrl } from '../shared/baseUrl';
+
+export const postComment = (comment) => ({
      type: ActionTypes.ADD_COMMENT,
-     payload: {
+     payload: comment
+});
+
+
+export const addComment = (dishId, rating, author, comment) => (dispatch) => {
+     
+     const newComment = {
          dishId: dishId,
          rating: rating,
          author: author,
          comment: comment
      }
+     newComment.date = new Date().toISOString();
+
+     return fetch(baseUrl + 'comments', {
+         method: 'POST',
+         body: JSON.stringify(newComment),
+         headers: {
+             'Content-Type': 'application/json'
+         },
+         credentials: 'same-origin'
+     })
+     .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else{
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(response => dispatch(postComment(response)))
+    .catch(error => { console.log('Post comments', error.message);
+         alert('Your comment could not be posted\nError: ' + error.message);
+        });
+};
+
+
+export const fetchComments = () => (dispatch) => {
+    return fetch(baseUrl + 'comments')
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else{
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+        .then(response => response.json())
+        .then(comments => dispatch(addComments(comments)))
+        .catch(error => dispatch(commentsFailed(error.message)));
+}
+
+export const commentsFailed = (errmess) => ({
+    type: ActionTypes.COMMENTS_FAILED,
+    payload: errmess
 });
+
+export const addComments = (comments) => ({
+    type: ActionTypes.ADD_COMMENTS,
+    payload: comments
+});
+
+
+
+
+// export const addComment = (dishId, rating , author, comment) => ({
+//      type: ActionTypes.ADD_COMMENT,
+//      payload: {
+//          dishId: dishId,
+//          rating: rating,
+//          author: author,
+//          comment: comment
+//      }
+// });
 
 export const addToBasket = (id, name, brand, image, category, price, description) => ({
     type: ActionTypes.ADD_TO_BASKET,
@@ -42,9 +124,26 @@ export const addLoginDetails = (personId, username , password, remember) => ({
 });
 
 
-export const addSignupDetails = (personId, firstname , lastname, email, dateOfBirth, password, confirmpassword) => ({
+export const postSignup = (signup) => ({
     type: ActionTypes.ADD_SIGNUP,
-    payload: {
+    payload: signup
+});
+
+// export const addSignupDetails = (personId, firstname , lastname, email, dateOfBirth, password, confirmpassword) => ({
+//     type: ActionTypes.ADD_SIGNUP,
+//     payload: {
+//         personId: personId,
+//         firstname: firstname,
+//         lastname: lastname,
+//         email: email,
+//         dateOfBirth: dateOfBirth,
+//         password: password,
+//         confirmpassword: confirmpassword
+//     }
+// });
+export const addSignupDetails = (personId, firstname , lastname, email, dateOfBirth, password, confirmpassword) => (dispatch) => {
+     
+    const newSignup = {
         personId: personId,
         firstname: firstname,
         lastname: lastname,
@@ -53,7 +152,153 @@ export const addSignupDetails = (personId, firstname , lastname, email, dateOfBi
         password: password,
         confirmpassword: confirmpassword
     }
+    newSignup.date = new Date().toISOString();
+
+    return fetch(baseUrl + 'signups', {
+        method: 'POST',
+        body: JSON.stringify(newSignup),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+    .then(response => {
+       if (response.ok) {
+           return response;
+       }
+       else{
+           var error = new Error('Error ' + response.status + ': ' + response.statusText);
+           error.response = response;
+           throw error;
+       }
+   },
+   error => {
+       var errmess = new Error(error.message);
+       throw errmess;
+   })
+   .then(response => response.json())
+   .then(response => dispatch(postSignup(response)))
+   .catch(error => { console.log('Post signup details', error.message);
+        alert('Your signup details could not be posted\nError: ' + error.message);
+       });
+};
+
+
+export const fetchSignups = () => (dispatch) => {
+    return fetch(baseUrl + 'signups')
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else{
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+        .then(response => response.json())
+        .then(signups => dispatch(addSignups(signups)))
+        .catch(error => dispatch(signupsFailed(error.message)));
+}
+
+export const signupsFailed = (errmess) => ({
+    type: ActionTypes.SIGNUPS_FAILED,
+    payload: errmess
 });
+
+export const addSignups = (signups) => ({
+    type: ActionTypes.ADD_SIGNUPS,
+    payload: signups
+});
+
+
+
+export const postAddress = (address) => ({
+    type: ActionTypes.ADD_ADDRESS,
+    payload: address
+});
+
+
+export const addAddressDetails = (personId, name, contact, pincode, address, locality, city, state) => (dispatch) => {
+     
+    const newAddress = {
+        personId: personId,
+        name: name,
+        contact: contact,
+        pincode: pincode,
+        address: address,
+        locality: locality,
+        city: city,
+        state: state
+    }
+    newAddress.date = new Date().toISOString();
+
+    return fetch(baseUrl + 'address', {
+        method: 'POST',
+        body: JSON.stringify(newAddress),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+    .then(response => {
+       if (response.ok) {
+           return response;
+       }
+       else{
+           var error = new Error('Error ' + response.status + ': ' + response.statusText);
+           error.response = response;
+           throw error;
+       }
+   },
+   error => {
+       var errmess = new Error(error.message);
+       throw errmess;
+   })
+   .then(response => response.json())
+   .then(response => dispatch(postAddress(response)))
+   .catch(error => { console.log('Post address details', error.message);
+        alert('Your address details could not be posted\nError: ' + error.message);
+       });
+};
+
+
+export const fetchAddress = () => (dispatch) => {
+    return fetch(baseUrl + 'address')
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else{
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+        .then(response => response.json())
+        .then(address => dispatch(addAddress(address)))
+        .catch(error => dispatch(addressFailed(error.message)));
+}
+
+export const addressFailed = (errmess) => ({
+    type: ActionTypes.ADDRESS_FAILED,
+    payload: errmess
+});
+
+export const addAddress = (address) => ({
+    type: ActionTypes.ADD_ADDRESS1,
+    payload: address
+});
+
+
 
 export const fetchMens = () => (dispatch) => {
     dispatch(mensLoading(true));
